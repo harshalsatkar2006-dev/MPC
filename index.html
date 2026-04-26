@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maharashtra Pest Control – Professional Pest Management</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #1a6b3a;
+    --green-mid: #22883f;
+    --green-light: #34a853;
+    --green-pale: #e8f5ed;
+    --teal: #0d7b6b;
+    --blue: #0f4c81;
+    --blue-light: #e8f0fb;
+    --gold: #f4a418;
+    --dark: #0e1a14;
+    --gray: #4a5568;
+    --gray-light: #f7fafc;
+    --white: #ffffff;
+    --shadow: 0 4px 24px rgba(26,107,58,0.10);
+    --shadow-lg: 0 12px 40px rgba(26,107,58,0.16);
+    --radius: 16px;
+    --radius-sm: 10px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  h1,h2,h3,h4 { font-family: 'Syne', sans-serif; }
+  a { text-decoration: none; color: inherit; }
+  img { max-width: 100%; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(26,107,58,0.09);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5vw; height: 68px;
+    transition: box-shadow 0.3s;
+  }
+  nav.scrolled { box-shadow: var(--shadow); }
+  .nav-logo { display: flex; align-items: center; gap: 10px; }
+  .nav-logo-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: linear-gradient(135deg, var(--green), var(--teal));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+  }
+  .nav-logo-text { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--green); line-height: 1.2; }
+  .nav-logo-sub { font-size: 0.65rem; color: var(--gray); font-weight: 400; font-family: 'DM Sans', sans-serif; letter-spacing: 0.05em; }
+  .nav-links { display: flex; align-items: center; gap: 28px; }
+  .nav-links a { font-size: 0.92rem; font-weight: 500; color: var(--gray); transition: color 0.2s; }
+  .nav-links a:hover { color: var(--green); }
+  .nav-cta {
+    background: var(--green); color: white; padding: 9px 22px;
+    border-radius: 50px; font-size: 0.9rem; font-weight: 600; cursor: pointer; border: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .nav-cta:hover { background: var(--green-mid); transform: translateY(-1px); }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--green); border-radius: 2px; transition: all 0.3s; }
+  .mobile-menu {
+    display: none; position: fixed; top: 68px; left: 0; right: 0;
+    background: white; border-bottom: 1px solid #eee; padding: 20px 5vw 24px;
+    flex-direction: column; gap: 16px; z-index: 99; box-shadow: var(--shadow);
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-size: 1rem; font-weight: 500; color: var(--gray); padding: 6px 0; border-bottom: 1px solid #f0f0f0; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh; padding: 110px 5vw 70px;
+    background: linear-gradient(145deg, #f0faf4 0%, #e3f5eb 40%, #d6f0f0 100%);
+    display: flex; align-items: center; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -120px; right: -120px;
+    width: 520px; height: 520px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(26,107,58,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -80px; left: -60px;
+    width: 360px; height: 360px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(13,123,107,0.09) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 60px; width: 100%; position: relative; z-index: 1; }
+  .hero-content { flex: 1; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: rgba(26,107,58,0.10); border: 1px solid rgba(26,107,58,0.18);
+    color: var(--green); padding: 6px 14px; border-radius: 50px;
+    font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+    margin-bottom: 22px; animation: fadeInUp 0.6s ease both;
+  }
+  .hero h1 {
+    font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 800; line-height: 1.12;
+    color: var(--dark); margin-bottom: 22px;
+    animation: fadeInUp 0.7s 0.1s ease both;
+  }
+  .hero h1 span { color: var(--green); }
+  .hero-desc {
+    font-size: 1.08rem; color: var(--gray); max-width: 500px; margin-bottom: 36px; font-weight: 400;
+    animation: fadeInUp 0.7s 0.2s ease both;
+  }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; animation: fadeInUp 0.7s 0.3s ease both; }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--green), var(--teal));
+    color: white; padding: 14px 32px; border-radius: 50px;
+    font-weight: 700; font-size: 1rem; cursor: pointer; border: none;
+    box-shadow: 0 6px 20px rgba(26,107,58,0.28);
+    transition: transform 0.18s, box-shadow 0.18s;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(26,107,58,0.35); }
+  .btn-outline {
+    background: transparent; color: var(--green);
+    border: 2px solid var(--green); padding: 13px 28px; border-radius: 50px;
+    font-weight: 600; font-size: 1rem; cursor: pointer;
+    transition: background 0.18s, color 0.18s;
+  }
+  .btn-outline:hover { background: var(--green); color: white; }
+  .hero-stats {
+    display: flex; gap: 30px; margin-top: 48px; flex-wrap: wrap;
+    animation: fadeInUp 0.7s 0.4s ease both;
+  }
+  .hero-stat { }
+  .hero-stat-num { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: var(--green); }
+  .hero-stat-label { font-size: 0.82rem; color: var(--gray); font-weight: 500; }
+  .hero-visual {
+    flex: 0 0 360px; display: flex; flex-direction: column; gap: 14px;
+    animation: fadeInRight 0.8s 0.2s ease both;
+  }
+  .pest-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .pest-card-mini {
+    background: white; border-radius: 14px; padding: 18px 14px;
+    box-shadow: var(--shadow); text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s; cursor: pointer;
+  }
+  .pest-card-mini:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .pest-card-mini .emoji { font-size: 2rem; margin-bottom: 6px; display: block; }
+  .pest-card-mini .name { font-size: 0.82rem; font-weight: 600; color: var(--dark); }
+  .hero-trust {
+    background: white; border-radius: 14px; padding: 16px 18px;
+    box-shadow: var(--shadow); display: flex; align-items: center; gap: 12px;
+  }
+  .hero-trust .t-icon { font-size: 1.8rem; }
+  .hero-trust .t-text { font-size: 0.85rem; color: var(--gray); }
+  .hero-trust .t-text strong { display: block; color: var(--dark); font-weight: 700; font-size: 0.95rem; }
+
+  /* ── SECTIONS ── */
+  section { padding: 90px 5vw; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-tag {
+    display: inline-block; background: var(--green-pale); color: var(--green);
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 50px; margin-bottom: 14px;
+  }
+  .section-title {
+    font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 800; color: var(--dark);
+    margin-bottom: 14px; line-height: 1.2;
+  }
+  .section-sub { font-size: 1.05rem; color: var(--gray); max-width: 560px; }
+
+  /* ── ABOUT ── */
+  .about { background: var(--dark); color: white; }
+  .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+  .about .section-title { color: white; }
+  .about .section-tag { background: rgba(52,168,83,0.18); }
+  .about-desc { color: rgba(255,255,255,0.72); font-size: 1.02rem; margin-top: 16px; line-height: 1.8; }
+  .about-highlights { margin-top: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .hl-item {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px; padding: 18px; display: flex; align-items: flex-start; gap: 12px;
+  }
+  .hl-icon { font-size: 1.5rem; flex-shrink: 0; }
+  .hl-label { font-size: 0.82rem; color: rgba(255,255,255,0.55); }
+  .hl-val { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; color: white; }
+  .about-owner {
+    background: linear-gradient(135deg, rgba(26,107,58,0.3), rgba(13,123,107,0.3));
+    border: 1px solid rgba(52,168,83,0.2); border-radius: 20px;
+    padding: 36px; position: relative; overflow: hidden;
+  }
+  .about-owner::before {
+    content: '🛡️'; font-size: 8rem; opacity: 0.06;
+    position: absolute; right: -10px; top: -10px; line-height: 1;
+  }
+  .owner-name { font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800; color: white; }
+  .owner-title { color: var(--green-light); font-size: 0.9rem; margin-bottom: 16px; }
+  .owner-bio { color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.7; }
+  .owner-contact { margin-top: 20px; display: flex; flex-direction: column; gap: 8px; }
+  .owner-contact a {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: rgba(255,255,255,0.8); font-size: 0.9rem; transition: color 0.2s;
+  }
+  .owner-contact a:hover { color: var(--green-light); }
+
+  /* ── SERVICES ── */
+  .services { background: var(--gray-light); }
+  .services-header { text-align: center; margin-bottom: 50px; }
+  .services-header .section-sub { margin: 0 auto; }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 22px; }
+  .service-card {
+    background: white; border-radius: var(--radius); padding: 30px 22px;
+    text-align: center; box-shadow: var(--shadow);
+    border: 2px solid transparent; cursor: pointer;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .service-card::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, var(--green-pale), #d0eeff);
+    opacity: 0; transition: opacity 0.25s;
+  }
+  .service-card:hover { border-color: var(--green-light); transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+  .service-card:hover::before { opacity: 1; }
+  .service-card > * { position: relative; z-index: 1; }
+  .service-emoji { font-size: 3rem; margin-bottom: 14px; display: block; }
+  .service-title { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+  .service-desc { font-size: 0.85rem; color: var(--gray); line-height: 1.55; }
+  .service-book-btn {
+    margin-top: 16px; background: var(--green); color: white;
+    border: none; border-radius: 50px; padding: 9px 20px;
+    font-size: 0.85rem; font-weight: 600; cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .service-book-btn:hover { background: var(--green-mid); transform: translateY(-1px); }
+
+  /* ── WHY CHOOSE US ── */
+  .why { background: white; }
+  .why-inner { display: grid; grid-template-columns: 1fr 1.5fr; gap: 70px; align-items: center; }
+  .why-features { display: grid; gap: 20px; }
+  .why-item {
+    display: flex; gap: 16px; align-items: flex-start;
+    padding: 20px; border-radius: 14px; transition: background 0.2s;
+  }
+  .why-item:hover { background: var(--green-pale); }
+  .why-icon {
+    flex-shrink: 0; width: 48px; height: 48px; border-radius: 12px;
+    background: linear-gradient(135deg, var(--green-pale), #d0f0e8);
+    display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
+  }
+  .why-content h4 { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 5px; }
+  .why-content p { font-size: 0.88rem; color: var(--gray); }
+
+  /* ── SERVICE AREAS ── */
+  .areas { background: linear-gradient(135deg, var(--green), var(--teal)); color: white; }
+  .areas-inner { text-align: center; }
+  .areas .section-title { color: white; }
+  .areas .section-tag { background: rgba(255,255,255,0.15); color: white; }
+  .areas .section-sub { color: rgba(255,255,255,0.8); margin: 0 auto 40px; }
+  .area-chips { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+  .area-chip {
+    background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
+    padding: 12px 26px; border-radius: 50px; font-weight: 600; font-size: 0.95rem;
+    backdrop-filter: blur(6px); transition: background 0.2s;
+  }
+  .area-chip:hover { background: rgba(255,255,255,0.25); }
+
+  /* ── CONTACT ── */
+  .contact { background: var(--gray-light); }
+  .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+  .contact-info { display: flex; flex-direction: column; gap: 20px; }
+  .contact-card {
+    background: white; border-radius: var(--radius); padding: 22px 24px;
+    display: flex; align-items: center; gap: 16px; box-shadow: var(--shadow);
+  }
+  .contact-icon {
+    width: 50px; height: 50px; border-radius: 12px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--green-pale), #d0f0e8);
+    display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+  }
+  .contact-card h4 { font-family: 'Syne', sans-serif; font-size: 0.85rem; color: var(--gray); font-weight: 600; margin-bottom: 3px; }
+  .contact-card p { font-size: 1rem; font-weight: 600; color: var(--dark); }
+  .contact-card a { color: var(--dark); transition: color 0.2s; }
+  .contact-card a:hover { color: var(--green); }
+  .whatsapp-btn {
+    background: #25D366; color: white; border: none; border-radius: 50px;
+    padding: 14px 28px; font-size: 1rem; font-weight: 700; cursor: pointer;
+    display: flex; align-items: center; gap: 10px; transition: background 0.2s, transform 0.15s;
+    box-shadow: 0 6px 20px rgba(37,211,102,0.3);
+  }
+  .whatsapp-btn:hover { background: #20c75a; transform: translateY(-2px); }
+
+  /* ── BOOKING MODAL ── */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0; z-index: 200;
+    background: rgba(14,26,20,0.55); backdrop-filter: blur(4px);
+    align-items: center; justify-content: center; padding: 20px;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: white; border-radius: 24px; width: 100%; max-width: 540px;
+    max-height: 92vh; overflow-y: auto; padding: 36px; position: relative;
+    animation: popIn 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  .modal-close {
+    position: absolute; top: 16px; right: 20px;
+    background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--gray);
+    transition: color 0.2s;
+  }
+  .modal-close:hover { color: var(--dark); }
+  .modal-title { font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800; margin-bottom: 6px; }
+  .modal-sub { font-size: 0.9rem; color: var(--gray); margin-bottom: 28px; }
+  .form-group { margin-bottom: 18px; }
+  .form-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 7px; color: var(--dark); }
+  .form-control {
+    width: 100%; padding: 12px 16px; border: 2px solid #e2e8f0;
+    border-radius: var(--radius-sm); font-size: 0.95rem; font-family: 'DM Sans', sans-serif;
+    background: #f8fafc; transition: border-color 0.2s, background 0.2s;
+    outline: none; color: var(--dark);
+  }
+  .form-control:focus { border-color: var(--green); background: white; }
+  .pest-select-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+  .pest-opt {
+    border: 2px solid #e2e8f0; border-radius: 12px; padding: 12px 6px;
+    text-align: center; cursor: pointer; transition: all 0.18s; background: #f8fafc;
+  }
+  .pest-opt:hover { border-color: var(--green-light); background: var(--green-pale); }
+  .pest-opt.selected { border-color: var(--green); background: var(--green-pale); }
+  .pest-opt .p-emoji { font-size: 1.6rem; display: block; margin-bottom: 4px; }
+  .pest-opt .p-name { font-size: 0.72rem; font-weight: 600; color: var(--dark); }
+  .time-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .time-opt {
+    border: 2px solid #e2e8f0; border-radius: 8px; padding: 9px 6px;
+    text-align: center; cursor: pointer; font-size: 0.82rem; font-weight: 600;
+    transition: all 0.18s; background: #f8fafc; color: var(--dark);
+  }
+  .time-opt:hover { border-color: var(--green); background: var(--green-pale); }
+  .time-opt.selected { border-color: var(--green); background: var(--green); color: white; }
+  .time-opt.disabled { opacity: 0.45; cursor: not-allowed; pointer-events: none; background: #eee; }
+  .submit-btn {
+    width: 100%; background: linear-gradient(135deg, var(--green), var(--teal));
+    color: white; border: none; border-radius: 50px; padding: 15px;
+    font-size: 1.05rem; font-weight: 700; cursor: pointer; margin-top: 10px;
+    font-family: 'DM Sans', sans-serif;
+    transition: opacity 0.2s, transform 0.15s;
+  }
+  .submit-btn:hover { opacity: 0.92; transform: translateY(-1px); }
+  .form-error { color: #e53e3e; font-size: 0.83rem; margin-top: 5px; }
+  .booking-success {
+    text-align: center; padding: 20px 10px;
+    animation: fadeInUp 0.5s ease;
+  }
+  .booking-success .success-icon { font-size: 4rem; margin-bottom: 16px; }
+  .booking-success h3 { font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800; margin-bottom: 10px; color: var(--green); }
+  .booking-success p { color: var(--gray); font-size: 0.95rem; line-height: 1.6; }
+  .booking-success .ref { background: var(--green-pale); border-radius: 10px; padding: 12px 20px; margin: 16px 0; font-weight: 700; color: var(--green); font-family: 'Syne', sans-serif; }
+
+  /* ── LOGIN MODAL ── */
+  .otp-section { display: none; }
+  .otp-section.active { display: block; }
+  .otp-inputs { display: flex; gap: 10px; justify-content: center; margin: 20px 0; }
+  .otp-input {
+    width: 50px; height: 54px; text-align: center; font-size: 1.4rem; font-weight: 700;
+    border: 2px solid #e2e8f0; border-radius: 10px; background: #f8fafc; font-family: 'Syne', sans-serif;
+    outline: none; transition: border-color 0.2s;
+  }
+  .otp-input:focus { border-color: var(--green); background: white; }
+  .otp-timer { text-align: center; font-size: 0.85rem; color: var(--gray); margin-bottom: 10px; }
+  .resend-btn { background: none; border: none; color: var(--green); cursor: pointer; font-weight: 600; font-size: 0.85rem; }
+
+  /* ── ADMIN PANEL ── */
+  .admin-overlay {
+    display: none; position: fixed; inset: 0; z-index: 300;
+    background: rgba(14,26,20,0.7); backdrop-filter: blur(6px);
+    align-items: center; justify-content: center; padding: 16px;
+  }
+  .admin-overlay.open { display: flex; }
+  .admin-panel {
+    background: white; border-radius: 20px; width: 100%; max-width: 800px;
+    max-height: 92vh; overflow-y: auto; padding: 32px;
+    animation: popIn 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  .admin-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+  .admin-header h2 { font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800; }
+  .bookings-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  .bookings-table th {
+    background: var(--green-pale); color: var(--green); font-weight: 700; padding: 11px 14px;
+    text-align: left; font-family: 'Syne', sans-serif;
+  }
+  .bookings-table td { padding: 11px 14px; border-bottom: 1px solid #f0f0f0; vertical-align: middle; }
+  .bookings-table tr:last-child td { border-bottom: none; }
+  .bookings-table tr:hover td { background: #fafffe; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 4px 10px; border-radius: 50px; font-size: 0.78rem; font-weight: 700;
+  }
+  .badge-green { background: var(--green-pale); color: var(--green); }
+  .badge-blue { background: var(--blue-light); color: var(--blue); }
+  .no-bookings { text-align: center; color: var(--gray); padding: 40px 0; font-size: 0.95rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark); color: rgba(255,255,255,0.65);
+    padding: 40px 5vw; text-align: center;
+  }
+  footer .footer-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.2rem; color: white; margin-bottom: 8px; }
+  footer p { font-size: 0.85rem; }
+  footer a { color: var(--green-light); }
+
+  /* ── USER STATUS BAR ── */
+  .user-bar {
+    display: none; align-items: center; gap: 10px;
+    background: var(--green-pale); border-radius: 50px; padding: 6px 14px;
+    font-size: 0.85rem; font-weight: 600; color: var(--green);
+  }
+  .user-bar.visible { display: flex; }
+  .logout-btn { background: none; border: none; cursor: pointer; color: var(--gray); font-size: 0.8rem; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeInRight { from { opacity: 0; transform: translateX(28px); } to { opacity: 1; transform: translateX(0); } }
+  @keyframes popIn { from { opacity: 0; transform: scale(0.88); } to { opacity: 1; transform: scale(1); } }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-inner { flex-direction: column; }
+    .hero-visual { flex: none; width: 100%; max-width: 400px; margin: 0 auto; }
+    .about-inner { grid-template-columns: 1fr; }
+    .why-inner { grid-template-columns: 1fr; }
+    .contact-inner { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 700px) {
+    nav { padding: 0 4vw; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    section { padding: 60px 4vw; }
+    .about-highlights { grid-template-columns: 1fr; }
+    .pest-select-grid { grid-template-columns: repeat(3, 1fr); }
+    .time-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero-stats { gap: 20px; }
+    .modal { padding: 24px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-logo">
+    <div class="nav-logo-icon">🛡️</div>
+    <div>
+      <div class="nav-logo-text">MAHARASHTRA</div>
+      <div class="nav-logo-sub">PEST CONTROL</div>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#why">Why Us</a>
+    <a href="#areas">Areas</a>
+    <a href="#contact">Contact</a>
+    <div class="user-bar" id="user-bar">
+      <span>👤</span>
+      <span id="user-num"></span>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+    <button class="nav-cta" id="nav-cta-btn" onclick="openLoginOrBook()">Book Now</button>
+    <button style="background:none;border:1px solid #ccc;padding:6px 14px;border-radius:50px;cursor:pointer;font-size:0.82rem;" onclick="openAdmin()">Admin</button>
+  </div>
+  <div class="hamburger" id="hamburger" onclick="toggleMobile()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#why" onclick="closeMobile()">Why Us</a>
+  <a href="#areas" onclick="closeMobile()">Areas</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+  <button class="btn-primary" onclick="closeMobile();openLoginOrBook();" style="border:none;width:100%;">📅 Book Inspection</button>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">✅ Trusted Since 2014</div>
+      <h1>Protect Your Home<br><span>From Every Pest</span></h1>
+      <p class="hero-desc">Mumbai's most reliable pest control service. Quick response, safe chemicals, guaranteed results — serving homes and businesses across the Mumbai Metropolitan Region.</p>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="openLoginOrBook()">📅 Book Inspection</button>
+        <a href="tel:8108309622"><button class="btn-outline">📞 Call Now</button></a>
+        <a href="tel:7208102567"><button class="btn-outline" style="font-size:0.88rem;">📞 7208102567</button></a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="hero-stat-num">10+</div><div class="hero-stat-label">Years Experience</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">2000+</div><div class="hero-stat-label">Happy Clients</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">5</div><div class="hero-stat-label">Pest Solutions</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">4</div><div class="hero-stat-label">Service Areas</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="pest-grid">
+        <div class="pest-card-mini" onclick="openBooking('Ant')"><span class="emoji">🐜</span><span class="name">Ants</span></div>
+        <div class="pest-card-mini" onclick="openBooking('Cockroach')"><span class="emoji">🪳</span><span class="name">Cockroach</span></div>
+        <div class="pest-card-mini" onclick="openBooking('Termite')"><span class="emoji">🐛</span><span class="name">Termite</span></div>
+        <div class="pest-card-mini" onclick="openBooking('Bedbug')"><span class="emoji">🪲</span><span class="name">Bedbug</span></div>
+      </div>
+      <div class="pest-card-mini" onclick="openBooking('Rodent')" style="display:flex;align-items:center;gap:14px;text-align:left;padding:18px 20px;">
+        <span style="font-size:2rem;">🐀</span>
+        <div><div class="name" style="font-size:0.95rem;">Rodent Control</div><div style="font-size:0.78rem;color:#4a5568;margin-top:2px;">Rats & Mice Treatment</div></div>
+      </div>
+      <div class="hero-trust">
+        <div class="t-icon">🏆</div>
+        <div class="t-text"><strong>Certified & Licensed</strong>Govt. approved chemicals · Safe for family & pets</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-inner about-inner">
+    <div>
+      <div class="section-tag">About Us</div>
+      <h2 class="section-title">10+ Years Keeping Homes Pest-Free</h2>
+      <p class="about-desc">Maharashtra Pest Control has been the trusted name in pest management across Mumbai, Navi Mumbai, Thane, and surrounding areas since 2014. We combine proven techniques with modern, eco-friendly products to deliver lasting results.</p>
+      <div class="about-highlights">
+        <div class="hl-item"><div class="hl-icon">🗓️</div><div><div class="hl-label">In Business Since</div><div class="hl-val">2014</div></div></div>
+        <div class="hl-item"><div class="hl-icon">🏠</div><div><div class="hl-label">Clients Served</div><div class="hl-val">2000+</div></div></div>
+        <div class="hl-item"><div class="hl-icon">🧪</div><div><div class="hl-label">Products Used</div><div class="hl-val">Gov. Approved</div></div></div>
+        <div class="hl-item"><div class="hl-icon">⚡</div><div><div class="hl-label">Response Time</div><div class="hl-val">Same Day</div></div></div>
+      </div>
+    </div>
+    <div class="about-owner">
+      <div class="owner-name">Raju Satkar</div>
+      <div class="owner-title">Founder & Owner · Maharashtra Pest Control</div>
+      <p class="owner-bio">With over 10 years of hands-on experience in pest management, Raju Satkar has built Maharashtra Pest Control on a foundation of trust, reliability, and results. Every job is handled with personal attention to ensure your home is completely protected.</p>
+      <div class="owner-contact">
+        <a href="tel:8108309622">📞 8108309622</a>
+        <a href="tel:7208102567">📞 7208102567</a>
+        <a href="mailto:maharashtra.pestcontrol13@gmail.com">✉️ maharashtra.pestcontrol13@gmail.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-inner">
+    <div class="services-header">
+      <div class="section-tag">Our Services</div>
+      <h2 class="section-title">Complete Pest Control Solutions</h2>
+      <p class="section-sub">Targeted treatments for every common pest — safe, effective, and guaranteed.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-emoji">🐜</span>
+        <div class="service-title">Ant Control</div>
+        <p class="service-desc">Eliminate ant colonies from your home with targeted gel and spray treatments that work at the source.</p>
+        <button class="service-book-btn" onclick="openLoginOrBook('Ant')">Book Now</button>
+      </div>
+      <div class="service-card">
+        <span class="service-emoji">🪳</span>
+        <div class="service-title">Cockroach Control</div>
+        <p class="service-desc">Comprehensive cockroach treatment using gel bait, spray, and fumigation for kitchen and drains.</p>
+        <button class="service-book-btn" onclick="openLoginOrBook('Cockroach')">Book Now</button>
+      </div>
+      <div class="service-card">
+        <span class="service-emoji">🐛</span>
+        <div class="service-title">Termite Treatment</div>
+        <p class="service-desc">Pre & post-construction anti-termite treatment to protect your furniture and building structure.</p>
+        <button class="service-book-btn" onclick="openLoginOrBook('Termite')">Book Now</button>
+      </div>
+      <div class="service-card">
+        <span class="service-emoji">🪲</span>
+        <div class="service-title">Bedbug Control</div>
+        <p class="service-desc">Deep heat and chemical treatment to completely eradicate bedbugs from mattresses and furniture.</p>
+        <button class="service-book-btn" onclick="openLoginOrBook('Bedbug')">Book Now</button>
+      </div>
+      <div class="service-card">
+        <span class="service-emoji">🐀</span>
+        <div class="service-title">Rodent Control</div>
+        <p class="service-desc">Safe trapping and baiting solutions to remove and prevent rats and mice from entering your property.</p>
+        <button class="service-book-btn" onclick="openLoginOrBook('Rodent')">Book Now</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="why" id="why">
+  <div class="section-inner why-inner">
+    <div>
+      <div class="section-tag">Why Choose Us</div>
+      <h2 class="section-title">The Maharashtra Pest Control Difference</h2>
+      <p class="section-sub" style="margin-top:14px;">We don't just remove pests — we give you peace of mind with every service.</p>
+    </div>
+    <div class="why-features">
+      <div class="why-item"><div class="why-icon">🏆</div><div class="why-content"><h4>10+ Years of Expertise</h4><p>A decade of experience handling all types of pest infestations across Mumbai region.</p></div></div>
+      <div class="why-item"><div class="why-icon">🧪</div><div class="why-content"><h4>Safe & Approved Chemicals</h4><p>We use only government-approved, eco-friendly products that are safe for your family and pets.</p></div></div>
+      <div class="why-item"><div class="why-icon">⚡</div><div class="why-content"><h4>Quick & Reliable Service</h4><p>Same-day or next-day appointments available. We show up on time, every time.</p></div></div>
+      <div class="why-item"><div class="why-icon">🛡️</div><div class="why-content"><h4>Guaranteed Results</h4><p>Free follow-up visits if pests return within the warranty period. Your satisfaction is guaranteed.</p></div></div>
+      <div class="why-item"><div class="why-icon">💰</div><div class="why-content"><h4>Affordable Pricing</h4><p>Transparent, competitive rates with no hidden charges. Quality pest control within your budget.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE AREAS -->
+<section class="areas" id="areas">
+  <div class="section-inner areas-inner">
+    <div class="section-tag">Service Areas</div>
+    <h2 class="section-title">We Serve All Across Mumbai Metropolitan Region</h2>
+    <p class="section-sub">Covering Mumbai, Navi Mumbai, Thane, and nearby areas — we're always close to you.</p>
+    <div class="area-chips">
+      <div class="area-chip">🏙️ Mumbai</div>
+      <div class="area-chip">🌆 Navi Mumbai</div>
+      <div class="area-chip">🏘️ Thane</div>
+      <div class="area-chip">🏢 Kalyan</div>
+      <div class="area-chip">🏠 Dombivli</div>
+      <div class="area-chip">🌇 Panvel</div>
+      <div class="area-chip">🏗️ Khopoli</div>
+      <div class="area-chip">📍 Nearby Areas</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-inner contact-inner">
+    <div>
+      <div class="section-tag">Contact Us</div>
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="section-sub" style="margin-top:14px;margin-bottom:30px;">Reach out anytime — we're just a call or message away.</p>
+      <div class="contact-info">
+        <div class="contact-card">
+          <div class="contact-icon">📞</div>
+          <div><h4>Primary · Raju Satkar</h4><p><a href="tel:8108309622">8108309622</a></p></div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">📱</div>
+          <div><h4>Alternate Contact</h4><p><a href="tel:7208102567">7208102567</a></p></div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">✉️</div>
+          <div><h4>Email</h4><p><a href="mailto:maharashtra.pestcontrol13@gmail.com">maharashtra.pestcontrol13@gmail.com</a></p></div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">📍</div>
+          <div><h4>Service Region</h4><p>Mumbai, Navi Mumbai, Thane & nearby</p></div>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <button class="whatsapp-btn" style="flex:1;" onclick="window.open('https://wa.me/918108309622?text=Hello%2C%20I%20would%20like%20to%20book%20a%20pest%20control%20inspection.','_blank')">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            WA · 8108309622
+          </button>
+          <button class="whatsapp-btn" style="flex:1;" onclick="window.open('https://wa.me/917208102567?text=Hello%2C%20I%20would%20like%20to%20book%20a%20pest%20control%20inspection.','_blank')">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            WA · 7208102567
+          </button>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="background:white;border-radius:20px;padding:32px;box-shadow:var(--shadow-lg);">
+        <h3 style="font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;margin-bottom:6px;">Quick Booking</h3>
+        <p style="font-size:0.88rem;color:var(--gray);margin-bottom:24px;">Fill in your details and we'll confirm your slot.</p>
+        <div id="quick-form">
+          <div class="form-group"><label>Full Name</label><input class="form-control" id="qf-name" placeholder="Your full name"></div>
+          <div class="form-group"><label>Mobile Number</label><input class="form-control" id="qf-phone" placeholder="10-digit mobile number" maxlength="10"></div>
+          <div class="form-group"><label>Address</label><input class="form-control" id="qf-address" placeholder="Your full address"></div>
+          <div class="form-group">
+            <label>Pest Type</label>
+            <select class="form-control" id="qf-pest">
+              <option value="">Select pest type</option>
+              <option>Ant</option><option>Cockroach</option><option>Termite</option><option>Bedbug</option><option>Rodent</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Preferred Date</label><input class="form-control" type="date" id="qf-date"></div>
+          <div class="form-group">
+            <label>Time Slot</label>
+            <select class="form-control" id="qf-time">
+              <option value="">Select time slot</option>
+              <option>9:00 AM – 11:00 AM</option><option>11:00 AM – 1:00 PM</option>
+              <option>1:00 PM – 3:00 PM</option><option>3:00 PM – 5:00 PM</option>
+              <option>5:00 PM – 7:00 PM</option>
+            </select>
+          </div>
+          <div id="qf-error" class="form-error"></div>
+          <button class="submit-btn" onclick="submitQuickForm()">Confirm Booking →</button>
+        </div>
+        <div id="qf-success" style="display:none;" class="booking-success">
+          <div class="success-icon">✅</div>
+          <h3>Booking Confirmed!</h3>
+          <p>We'll contact you shortly to confirm your appointment.</p>
+          <div class="ref" id="qf-ref">Ref: MPC-000000</div>
+          <p style="font-size:0.83rem;color:var(--gray);margin-bottom:10px;">Tap below to notify the team on WhatsApp:</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+            <button class="whatsapp-btn" style="font-size:0.82rem;padding:10px 14px;" id="qf-wa1" onclick="notifyQFWA1()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+              8108309622
+            </button>
+            <button class="whatsapp-btn" style="font-size:0.82rem;padding:10px 14px;" id="qf-wa2" onclick="notifyQFWA2()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+              7208102567
+            </button>
+          </div>
+          <button class="submit-btn" onclick="resetQuickForm()" style="margin-top:14px;">Book Another</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">🛡️ MAHARASHTRA PEST CONTROL</div>
+  <p style="margin-bottom:6px;">Owned by <strong style="color:white;">Raju Satkar</strong> · 📞 8108309622 · 📞 7208102567</p>
+  <p>Serving Mumbai, Navi Mumbai, Thane & nearby areas · Est. 2014</p>
+  <p style="margin-top:16px;font-size:0.78rem;opacity:0.5;">© 2025 Maharashtra Pest Control. All rights reserved.</p>
+</footer>
+
+<!-- LOGIN MODAL -->
+<div class="modal-overlay" id="login-modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeLogin()">✕</button>
+    <div id="login-step-1">
+      <div style="text-align:center;margin-bottom:22px;"><span style="font-size:2.5rem;">🔐</span></div>
+      <h2 class="modal-title">Login to Book</h2>
+      <p class="modal-sub">Enter your mobile number to continue</p>
+      <div class="form-group"><label>Mobile Number</label><input class="form-control" id="login-phone" placeholder="10-digit mobile number" maxlength="10" oninput="this.value=this.value.replace(/\D/g,'')"></div>
+      <div id="login-error" class="form-error"></div>
+      <button class="submit-btn" onclick="sendOTP()">Send OTP →</button>
+    </div>
+    <div id="login-step-2" style="display:none;">
+      <div style="text-align:center;margin-bottom:22px;"><span style="font-size:2.5rem;">📱</span></div>
+      <h2 class="modal-title">Enter OTP</h2>
+      <p class="modal-sub" id="otp-hint">OTP sent to +91 XXXXXXXXXX</p>
+      <div class="otp-inputs">
+        <input class="otp-input" maxlength="1" oninput="otpNext(this,0)" id="otp0">
+        <input class="otp-input" maxlength="1" oninput="otpNext(this,1)" id="otp1">
+        <input class="otp-input" maxlength="1" oninput="otpNext(this,2)" id="otp2">
+        <input class="otp-input" maxlength="1" oninput="otpNext(this,3)" id="otp3">
+      </div>
+      <div class="otp-timer" id="otp-timer">Resend in 30s</div>
+      <div id="otp-error" class="form-error" style="text-align:center;"></div>
+      <button class="submit-btn" onclick="verifyOTP()">Verify & Continue →</button>
+      <p style="text-align:center;margin-top:14px;font-size:0.83rem;color:var(--gray);">Demo: OTP is <strong>1234</strong></p>
+    </div>
+  </div>
+</div>
+
+<!-- BOOKING MODAL -->
+<div class="modal-overlay" id="booking-modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeBooking()">✕</button>
+    <div id="booking-form-wrap">
+      <h2 class="modal-title">📅 Book Inspection</h2>
+      <p class="modal-sub">Max 2 bookings per day. Select pest, date and slot.</p>
+      <div class="form-group"><label>Full Name</label><input class="form-control" id="b-name" placeholder="Your full name"></div>
+      <div class="form-group"><label>Mobile Number</label><input class="form-control" id="b-phone" placeholder="Auto-filled" readonly></div>
+      <div class="form-group"><label>Address</label><input class="form-control" id="b-address" placeholder="Full address"></div>
+      <div class="form-group">
+        <label>Select Pest Type</label>
+        <div class="pest-select-grid">
+          <div class="pest-opt" onclick="selectPest('Ant',this)"><span class="p-emoji">🐜</span><span class="p-name">Ant</span></div>
+          <div class="pest-opt" onclick="selectPest('Cockroach',this)"><span class="p-emoji">🪳</span><span class="p-name">Cockroach</span></div>
+          <div class="pest-opt" onclick="selectPest('Termite',this)"><span class="p-emoji">🐛</span><span class="p-name">Termite</span></div>
+          <div class="pest-opt" onclick="selectPest('Bedbug',this)"><span class="p-emoji">🪲</span><span class="p-name">Bedbug</span></div>
+          <div class="pest-opt" onclick="selectPest('Rodent',this)"><span class="p-emoji">🐀</span><span class="p-name">Rodent</span></div>
+        </div>
+        <input type="hidden" id="b-pest">
+      </div>
+      <div class="form-group"><label>Select Date</label><input class="form-control" type="date" id="b-date" onchange="renderSlots()"></div>
+      <div class="form-group" id="slot-group" style="display:none;">
+        <label>Select Time Slot</label>
+        <div class="time-grid" id="time-grid"></div>
+        <input type="hidden" id="b-time">
+      </div>
+      <div id="booking-error" class="form-error"></div>
+      <button class="submit-btn" onclick="submitBooking()">Confirm Booking →</button>
+    </div>
+    <div id="booking-success-wrap" style="display:none;" class="booking-success">
+      <div class="success-icon">🎉</div>
+      <h3>Booking Confirmed!</h3>
+      <p>Our team will contact you to confirm the appointment details.</p>
+      <div class="ref" id="booking-ref">Ref: MPC-000000</div>
+      <p style="margin-top:6px;font-size:0.85rem;">For queries: <a href="tel:8108309622" style="color:var(--green);">8108309622</a> · <a href="tel:7208102567" style="color:var(--green);">7208102567</a></p>
+      <div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;">
+        <button class="whatsapp-btn" style="flex:1;font-size:0.82rem;padding:10px 14px;" id="wa-notify-1" onclick="notifyWA1()">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Send to 8108309622
+        </button>
+        <button class="whatsapp-btn" style="flex:1;font-size:0.82rem;padding:10px 14px;" id="wa-notify-2" onclick="notifyWA2()">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Send to 7208102567
+        </button>
+      </div>
+      <button class="submit-btn" onclick="resetBookingForm()" style="margin-top:16px;">Book Another</button>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div class="admin-overlay" id="admin-overlay">
+  <div class="admin-panel">
+    <div class="admin-header">
+      <h2>🛡️ Admin — Booking List</h2>
+      <button onclick="closeAdmin()" style="background:none;border:none;font-size:1.4rem;cursor:pointer;">✕</button>
+    </div>
+    <div id="admin-content"></div>
+  </div>
+</div>
+
+<script>
+// ── STATE ──
+let currentUser = null;
+let pendingOTP = null;
+let pendingPhone = null;
+let pendingPest = null;
+let otpTimerInterval = null;
+
+const SLOTS = ['9:00 AM – 11:00 AM','11:00 AM – 1:00 PM','1:00 PM – 3:00 PM','3:00 PM – 5:00 PM','5:00 PM – 7:00 PM'];
+
+function getBookings() {
+  try { return JSON.parse(localStorage.getItem('mpc_bookings') || '[]'); } catch { return []; }
+}
+function saveBookings(b) { localStorage.setItem('mpc_bookings', JSON.stringify(b)); }
+function getRef() { return 'MPC-' + Date.now().toString().slice(-6); }
+
+// ── NAV ──
+window.addEventListener('scroll', () => {
+  document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 20);
+});
+function toggleMobile() {
+  document.getElementById('mobile-menu').classList.toggle('open');
+}
+function closeMobile() {
+  document.getElementById('mobile-menu').classList.remove('open');
+}
+
+// ── USER SESSION ──
+function setUser(phone) {
+  currentUser = phone;
+  document.getElementById('user-num').textContent = '+91 ' + phone;
+  document.getElementById('user-bar').classList.add('visible');
+}
+function logout() {
+  currentUser = null;
+  document.getElementById('user-bar').classList.remove('visible');
+}
+
+// ── LOGIN ──
+function openLoginOrBook(pest) {
+  pendingPest = pest || null;
+  if (currentUser) { openBooking(pest); return; }
+  document.getElementById('login-modal').classList.add('open');
+  document.getElementById('login-step-1').style.display = '';
+  document.getElementById('login-step-2').style.display = 'none';
+  document.getElementById('login-phone').value = '';
+  document.getElementById('login-error').textContent = '';
+}
+function closeLogin() {
+  document.getElementById('login-modal').classList.remove('open');
+}
+function sendOTP() {
+  const ph = document.getElementById('login-phone').value.trim();
+  if (!/^\d{10}$/.test(ph)) {
+    document.getElementById('login-error').textContent = 'Please enter a valid 10-digit mobile number.'; return;
+  }
+  pendingPhone = ph;
+  pendingOTP = '1234'; // Simulated
+  document.getElementById('otp-hint').textContent = 'OTP sent to +91 ' + ph.slice(0,2) + 'XXXXXXXX';
+  document.getElementById('login-step-1').style.display = 'none';
+  document.getElementById('login-step-2').style.display = '';
+  ['otp0','otp1','otp2','otp3'].forEach(id => { document.getElementById(id).value = ''; });
+  document.getElementById('otp0').focus();
+  startOtpTimer();
+}
+function startOtpTimer() {
+  let t = 30;
+  clearInterval(otpTimerInterval);
+  otpTimerInterval = setInterval(() => {
+    t--;
+    const el = document.getElementById('otp-timer');
+    if (t > 0) { el.textContent = 'Resend in ' + t + 's'; }
+    else { el.innerHTML = '<button class="resend-btn" onclick="sendOTP()">Resend OTP</button>'; clearInterval(otpTimerInterval); }
+  }, 1000);
+}
+function otpNext(el, i) {
+  el.value = el.value.replace(/\D/g, '');
+  if (el.value && i < 3) document.getElementById('otp' + (i+1)).focus();
+}
+function verifyOTP() {
+  const entered = ['otp0','otp1','otp2','otp3'].map(id => document.getElementById(id).value).join('');
+  if (entered !== pendingOTP) {
+    document.getElementById('otp-error').textContent = 'Incorrect OTP. Try 1234.'; return;
+  }
+  clearInterval(otpTimerInterval);
+  setUser(pendingPhone);
+  closeLogin();
+  if (pendingPest !== undefined) openBooking(pendingPest);
+}
+
+// ── BOOKING ──
+function openBooking(pest) {
+  if (!currentUser) { openLoginOrBook(pest); return; }
+  document.getElementById('booking-modal').classList.add('open');
+  document.getElementById('booking-form-wrap').style.display = '';
+  document.getElementById('booking-success-wrap').style.display = 'none';
+  document.getElementById('b-phone').value = currentUser;
+  document.getElementById('b-name').value = '';
+  document.getElementById('b-address').value = '';
+  document.getElementById('b-date').value = '';
+  document.getElementById('b-pest').value = '';
+  document.getElementById('b-time').value = '';
+  document.getElementById('slot-group').style.display = 'none';
+  document.getElementById('booking-error').textContent = '';
+  document.querySelectorAll('.pest-opt').forEach(e => e.classList.remove('selected'));
+  if (pest) {
+    const map = {Ant:0,Cockroach:1,Termite:2,Bedbug:3,Rodent:4};
+    const opts = document.querySelectorAll('.pest-opt');
+    if (opts[map[pest]]) { opts[map[pest]].classList.add('selected'); document.getElementById('b-pest').value = pest; }
+  }
+  // Set min date to today
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('b-date').min = today;
+}
+function closeBooking() {
+  document.getElementById('booking-modal').classList.remove('open');
+}
+function selectPest(name, el) {
+  document.querySelectorAll('.pest-opt').forEach(e => e.classList.remove('selected'));
+  el.classList.add('selected');
+  document.getElementById('b-pest').value = name;
+}
+function renderSlots() {
+  const date = document.getElementById('b-date').value;
+  if (!date) return;
+  const bookings = getBookings();
+  const slotGroup = document.getElementById('slot-group');
+  const grid = document.getElementById('time-grid');
+  slotGroup.style.display = '';
+  grid.innerHTML = '';
+  document.getElementById('b-time').value = '';
+  SLOTS.forEach(slot => {
+    const booked = bookings.filter(b => b.date === date && b.slot === slot).length;
+    const el = document.createElement('div');
+    el.className = 'time-opt' + (booked >= 5 ? ' disabled' : '');
+    el.textContent = slot;
+    el.onclick = () => {
+      document.querySelectorAll('.time-opt').forEach(e => e.classList.remove('selected'));
+      el.classList.add('selected'); document.getElementById('b-time').value = slot;
+    };
+    grid.appendChild(el);
+  });
+}
+function submitBooking() {
+  const name = document.getElementById('b-name').value.trim();
+  const phone = document.getElementById('b-phone').value.trim();
+  const address = document.getElementById('b-address').value.trim();
+  const pest = document.getElementById('b-pest').value;
+  const date = document.getElementById('b-date').value;
+  const slot = document.getElementById('b-time').value;
+  const errEl = document.getElementById('booking-error');
+  errEl.textContent = '';
+  if (!name) { errEl.textContent = 'Please enter your full name.'; return; }
+  if (!address) { errEl.textContent = 'Please enter your address.'; return; }
+  if (!pest) { errEl.textContent = 'Please select a pest type.'; return; }
+  if (!date) { errEl.textContent = 'Please select a date.'; return; }
+  if (!slot) { errEl.textContent = 'Please select a time slot.'; return; }
+
+  const bookings = getBookings();
+  // Max 2 per user per day
+  const userDayCount = bookings.filter(b => b.phone === phone && b.date === date).length;
+  if (userDayCount >= 2) { errEl.textContent = '⚠️ You already have 2 bookings on this date. Maximum limit reached.'; return; }
+  // Duplicate check (same user, same slot, same date)
+  const dup = bookings.find(b => b.phone === phone && b.date === date && b.slot === slot);
+  if (dup) { errEl.textContent = '⚠️ You already have a booking for this slot on this date.'; return; }
+
+  const ref = getRef();
+  bookings.push({ ref, name, phone, address, pest, date, slot, ts: Date.now() });
+  saveBookings(bookings);
+
+  // Build WA message
+  lastBookingMsg = buildWAMessage({ref, name, phone, address, pest, date, slot});
+
+  document.getElementById('booking-ref').textContent = 'Ref: ' + ref;
+  document.getElementById('booking-form-wrap').style.display = 'none';
+  document.getElementById('booking-success-wrap').style.display = '';
+  // Reset WA button states
+  resetWABtns();
+}
+function resetBookingForm() {
+  document.getElementById('booking-form-wrap').style.display = '';
+  document.getElementById('booking-success-wrap').style.display = 'none';
+  document.getElementById('b-name').value = '';
+  document.getElementById('b-address').value = '';
+  document.getElementById('b-pest').value = '';
+  document.getElementById('b-date').value = '';
+  document.getElementById('b-time').value = '';
+  document.getElementById('slot-group').style.display = 'none';
+  document.querySelectorAll('.pest-opt').forEach(e => e.classList.remove('selected'));
+}
+
+// ── QUICK FORM (contact section) ──
+function submitQuickForm() {
+  const name = document.getElementById('qf-name').value.trim();
+  const phone = document.getElementById('qf-phone').value.trim();
+  const address = document.getElementById('qf-address').value.trim();
+  const pest = document.getElementById('qf-pest').value;
+  const date = document.getElementById('qf-date').value;
+  const slot = document.getElementById('qf-time').value;
+  const errEl = document.getElementById('qf-error');
+  errEl.textContent = '';
+  if (!name || !phone || !address || !pest || !date || !slot) { errEl.textContent = 'Please fill in all fields.'; return; }
+  if (!/^\d{10}$/.test(phone)) { errEl.textContent = 'Enter a valid 10-digit mobile number.'; return; }
+
+  const bookings = getBookings();
+  const userDayCount = bookings.filter(b => b.phone === phone && b.date === date).length;
+  if (userDayCount >= 2) { errEl.textContent = '⚠️ Maximum 2 bookings allowed per day for this number.'; return; }
+  const dup = bookings.find(b => b.phone === phone && b.date === date && b.slot === slot);
+  if (dup) { errEl.textContent = '⚠️ A booking already exists for this slot.'; return; }
+
+  const ref = getRef();
+  bookings.push({ ref, name, phone, address, pest, date, slot, ts: Date.now() });
+  saveBookings(bookings);
+  lastQFMsg = buildWAMessage({ref, name, phone, address, pest, date, slot});
+  document.getElementById('qf-ref').textContent = 'Ref: ' + ref;
+  document.getElementById('quick-form').style.display = 'none';
+  document.getElementById('qf-success').style.display = '';
+}
+function resetQuickForm() {
+  document.getElementById('quick-form').style.display = '';
+  document.getElementById('qf-success').style.display = 'none';
+  ['qf-name','qf-phone','qf-address','qf-date'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('qf-pest').value = '';
+  document.getElementById('qf-time').value = '';
+}
+let lastQFMsg = '';
+function notifyQFWA1() {
+  window.open('https://wa.me/918108309622?text=' + lastQFMsg, '_blank');
+  const btn = document.getElementById('qf-wa1');
+  btn.textContent = '✅ Sent!'; btn.disabled = true; btn.style.opacity = '0.7';
+}
+function notifyQFWA2() {
+  window.open('https://wa.me/917208102567?text=' + lastQFMsg, '_blank');
+  const btn = document.getElementById('qf-wa2');
+  btn.textContent = '✅ Sent!'; btn.disabled = true; btn.style.opacity = '0.7';
+}
+
+// ── WHATSAPP NOTIFICATIONS ──
+let lastBookingMsg = '';
+
+function buildWAMessage(b) {
+  return encodeURIComponent(
+    `🛡️ *New Booking - Maharashtra Pest Control*\n\n` +
+    `📋 Ref: ${b.ref}\n` +
+    `👤 Name: ${b.name}\n` +
+    `📞 Mobile: ${b.phone}\n` +
+    `🐛 Pest: ${b.pest}\n` +
+    `📅 Date: ${b.date}\n` +
+    `⏰ Slot: ${b.slot}\n` +
+    `📍 Address: ${b.address}`
+  );
+}
+function notifyWA1() {
+  window.open('https://wa.me/918108309622?text=' + lastBookingMsg, '_blank');
+  const btn = document.getElementById('wa-notify-1');
+  btn.textContent = '✅ Sent to 8108309622'; btn.disabled = true; btn.style.opacity = '0.7';
+}
+function notifyWA2() {
+  window.open('https://wa.me/917208102567?text=' + lastBookingMsg, '_blank');
+  const btn = document.getElementById('wa-notify-2');
+  btn.textContent = '✅ Sent to 7208102567'; btn.disabled = true; btn.style.opacity = '0.7';
+}
+function resetWABtns() {
+  const b1 = document.getElementById('wa-notify-1');
+  const b2 = document.getElementById('wa-notify-2');
+  if (b1) { b1.disabled = false; b1.style.opacity = '1'; b1.innerHTML = b1.innerHTML.replace('✅ Sent to 8108309622','<svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Send to 8108309622'); }
+  if (b2) { b2.disabled = false; b2.style.opacity = '1'; b2.innerHTML = b2.innerHTML.replace('✅ Sent to 7208102567','<svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Send to 7208102567'); }
+}
+
+// ── ADMIN ──
+function openAdmin() {
+  const bookings = getBookings();
+  const el = document.getElementById('admin-content');
+  if (bookings.length === 0) {
+    el.innerHTML = '<div class="no-bookings">📋 No bookings yet.</div>';
+  } else {
+    const rows = bookings.slice().reverse().map(b => `
+      <tr>
+        <td><strong>${b.ref}</strong></td>
+        <td>${b.name}</td>
+        <td>${b.phone}</td>
+        <td><span class="badge badge-blue">${b.pest}</span></td>
+        <td>${b.date}</td>
+        <td>${b.slot}</td>
+        <td style="max-width:140px;font-size:0.8rem;">${b.address}</td>
+      </tr>`).join('');
+    el.innerHTML = `
+      <div style="margin-bottom:12px;font-size:0.9rem;color:var(--gray);">Total bookings: <strong>${bookings.length}</strong></div>
+      <div style="overflow-x:auto;">
+      <table class="bookings-table">
+        <thead><tr><th>Ref</th><th>Name</th><th>Phone</th><th>Pest</th><th>Date</th><th>Slot</th><th>Address</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table></div>
+      <button onclick="clearAllBookings()" style="margin-top:18px;background:none;border:1px solid #e53e3e;color:#e53e3e;padding:8px 18px;border-radius:8px;cursor:pointer;font-size:0.85rem;">🗑 Clear All Bookings</button>
+    `;
+  }
+  document.getElementById('admin-overlay').classList.add('open');
+}
+function closeAdmin() { document.getElementById('admin-overlay').classList.remove('open'); }
+function clearAllBookings() {
+  if (confirm('Clear all bookings? This cannot be undone.')) {
+    localStorage.removeItem('mpc_bookings');
+    openAdmin();
+  }
+}
+
+// ── SET MIN DATE ──
+document.addEventListener('DOMContentLoaded', () => {
+  const today = new Date().toISOString().split('T')[0];
+  const dateFields = ['qf-date'];
+  dateFields.forEach(id => { const el = document.getElementById(id); if (el) el.min = today; });
+});
+
+// Close modals on overlay click
+document.getElementById('login-modal').addEventListener('click', function(e) { if (e.target === this) closeLogin(); });
+document.getElementById('booking-modal').addEventListener('click', function(e) { if (e.target === this) closeBooking(); });
+document.getElementById('admin-overlay').addEventListener('click', function(e) { if (e.target === this) closeAdmin(); });
+</script>
+</body>
+</html>
